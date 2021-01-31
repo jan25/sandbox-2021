@@ -1,0 +1,5 @@
+storage
+.pytest_cache
+
+# Exclude bazel generated files
+bazel-*

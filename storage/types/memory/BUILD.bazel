@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "memory",
+    srcs = [
+        "record.go",
+        "storage.go",
+    ],
+    importpath = "github.com/jan25/sandbox-2021/storage/types/memory",
+    visibility = ["//visibility:public"],
+    deps = ["//types"],
+)

@@ -1,0 +1,8 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "types",
+    srcs = ["types.go"],
+    importpath = "github.com/jan25/sandbox-2021/storage/types",
+    visibility = ["//visibility:public"],
+)

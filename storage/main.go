@@ -3,20 +3,23 @@ package main
 import (
 	"fmt"
 	"log"
+
+	types "github.com/jan25/sandbox-2021/storage/types"
+	memory "github.com/jan25/sandbox-2021/storage/types/memory"
 )
 
 func main() {
-	var s Storage = NewMemoryStorage()
+	var s types.Storage = memory.NewStorage()
 
-	r := NewMemoryRecord(10, "hi")
-	if err := s.write(r); err != nil {
+	r := memory.NewRecord(10, "hi")
+	if err := s.Write(r); err != nil {
 		log.Fatal(err)
 	}
 	fmt.Printf("Succesfully written: %v\n", r)
 
-	if r, err := s.read(10); err != nil {
+	if r, err := s.Read(10); err != nil {
 		log.Fatal(err)
 	} else {
-		fmt.Printf("Successfully read: %v\n", r)
+		fmt.Printf("Successfully Read: %v\n", r)
 	}
 }

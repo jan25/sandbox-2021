@@ -1,27 +1,27 @@
-package main
+package types
 
 import "errors"
 
-// ErrFailedToWrite is used when write to a storage failed.
-var ErrFailedToWrite = errors.New("write failed")
+// ErrFailedToWrite is used when Write to a storage failed.
+var ErrFailedToWrite = errors.New("Write failed")
 
 // ErrRecordNotFound is used when record is not found in storage.
 var ErrRecordNotFound = errors.New("record not found")
 
 // Record is a database record.
 type Record interface {
-	getID() int64
-	getValue() string
+	GetID() int64
+	GetValue() string
 }
 
-// Writer types are used to write to a concrete storage type.
+// Writer types are used to Write to a concrete storage type.
 type Writer interface {
-	write(Record) error
+	Write(Record) error
 }
 
-// Reader types are used to read from a conrete storage type.
+// Reader types are used to Read from a conrete storage type.
 type Reader interface {
-	read(int64) (Record, error)
+	Read(int64) (Record, error)
 }
 
 // Storage refers to a generic storage.

@@ -1,0 +1,22 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# gazelle:prefix github.com/jan25/sandbox-2021/storage
+gazelle(name = "gazelle")
+
+go_library(
+    name = "storage_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/jan25/sandbox-2021/storage",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//types",
+        "//types/memory",
+    ],
+)
+
+go_binary(
+    name = "storage",
+    embed = [":storage_lib"],
+    visibility = ["//visibility:public"],
+)
