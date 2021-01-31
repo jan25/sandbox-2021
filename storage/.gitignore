@@ -2,4 +2,7 @@ storage
 .pytest_cache
 
 # Exclude bazel generated files
-bazel-*
+bazel-bin
+bazel-out
+bazel-storage
+bazel-testlogs
