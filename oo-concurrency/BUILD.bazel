@@ -1,0 +1,13 @@
+load("@rules_java//java:defs.bzl", "java_binary")
+
+java_binary(
+    name = "JavaMain",
+    srcs = glob(["src/main/java/com/example/*.java"]),
+)
+
+load("@io_bazel_rules_go//go:def.bzl", "go_binary")
+
+go_binary(
+    name = "gomain",
+    srcs = ["go/main.go"],
+)
